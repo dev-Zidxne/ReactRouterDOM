@@ -1,5 +1,5 @@
 import React from "react";
-import MainNavigation from "../../project-1/components/MainNavigation";
+import MainNavigation from "../components/MainNavigation";
 
 function ErrorPage() {
   return (
