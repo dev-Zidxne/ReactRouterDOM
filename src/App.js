@@ -7,16 +7,16 @@ import RootLayout from "./pages/Root";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/root",
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
       { path: "/", element: <HomePage /> },
       {
-        path: "/products",
+        path: "products",
         element: <ProductsPage />,
       },
-      { path: "/products/:productId", element: <ProductDetail /> },
+      { path: "products/:productId", element: <ProductDetail /> },
     ],
   },
 ]);
