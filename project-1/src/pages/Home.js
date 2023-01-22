@@ -2,10 +2,10 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function HomePage() {
-  const naviagte = useNavigate();
+  const navigate = useNavigate();
 
   function navigateHandler() {
-    naviagte("products");
+    navigate("products");
   }
 
   return (
