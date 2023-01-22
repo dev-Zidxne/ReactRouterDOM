@@ -5,7 +5,6 @@ import { useRouteLoaderData } from "react-router-dom";
 function EditEventPage() {
   const data = useRouteLoaderData("event-detail");
 
-  useRouteLoaderData();
   return <EventForm event={data.event} />;
 }
 
