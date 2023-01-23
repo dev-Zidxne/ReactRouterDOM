@@ -3,27 +3,27 @@ import EditEventPage from "./pages/EditEventPage";
 import ErrorPage from "./pages/ErrorPage";
 import EventDetailPage, {
   loader as eventDetailLoader,
-  action as deleteEventHandler,
+  action as deleteEventAction,
 } from "./pages/EventDetailPage";
 import EventsPage, { loader as eventsLoader } from "./pages/EventsPage";
-import EventsRoot from "./pages/EventsRoot";
+import EventsRootLayout from "./pages/EventsRoot";
 import HomePage from "./pages/HomePage";
 import NewEventPage from "./pages/NewEventPage";
 
 import RootLayout from "./pages/RootLayout";
 import { action as manipulateEventAction } from "./components/EventForm";
+import NewsletterPage, { action as newsletterAction } from "./pages/Newsletter";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     errorElement: <ErrorPage />,
-
     children: [
-      { index: true, path: "/", element: <HomePage /> },
+      { index: true, element: <HomePage /> },
       {
         path: "events",
-        element: <EventsRoot />,
+        element: <EventsRootLayout />,
         children: [
           {
             index: true,
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <EventDetailPage />,
-                action: deleteEventHandler,
+                action: deleteEventAction,
               },
               {
                 path: "edit",
@@ -47,7 +47,6 @@ const router = createBrowserRouter([
               },
             ],
           },
-
           {
             path: "new",
             element: <NewEventPage />,
@@ -55,9 +54,15 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: "newsletter",
+        element: <NewsletterPage />,
+        action: newsletterAction,
+      },
     ],
   },
 ]);
+
 function App() {
   return <RouterProvider router={router} />;
 }
